@@ -1,0 +1,47 @@
+:global {
+	::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
+		color: transparent;
+	}
+
+	page {
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-size-adjust: 100%;
+		text-rendering: optimizelegibility;
+	}
+
+	button {
+		display: flex;
+		overflow: hidden;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		height: auto;
+		outline: none;
+		border: none;
+		background-color: transparent;
+		font-size: 28rpx;
+		transition: all ease 0.3s;
+
+		&::after {
+			display: none;
+		}
+
+		text {
+			margin-bottom: -2rpx;
+			vertical-align: middle;
+		}
+	}
+
+	input {
+		box-sizing: border-box;
+		font-size: 28rpx;
+	}
+
+	.hover_navigator {
+		background-color: transparent;
+	}
+}

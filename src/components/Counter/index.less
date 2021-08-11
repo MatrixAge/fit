@@ -1,0 +1,36 @@
+._local {
+	display: flex;
+	align-items: center;
+
+	:global {
+		.btn {
+			width: 42rpx;
+			height: 42rpx;
+			border-radius: 50%;
+			background-color: var(--color_bg);
+
+			.line {
+				width: 22rpx;
+				height: 4rpx;
+				border-radius: 2rpx;
+				background-color: #ccc;
+			}
+
+			&.btn_increase {
+				.line:first-child {
+					transform: rotate(90deg);
+					transform-origin: center;
+				}
+			}
+		}
+
+		.input {
+			margin: 0 16rpx;
+			width: 40rpx;
+			height: 42rpx;
+			text-align: center;
+			font-size: 30rpx;
+			line-height: 42rpx;
+		}
+	}
+}
