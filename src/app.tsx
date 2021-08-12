@@ -5,7 +5,6 @@ import interceptor from '@/util/interceptor'
 import createApp from '@/util/dva'
 import models from '@/util/model'
 import { memo } from '@/util/op'
-import '@/styles/taro_ui'
 import '@/util/override'
 import '@/util/middleware'
 import './app.less'
@@ -17,4 +16,6 @@ const store = createApp({ models: models }).getStore()
 Taro.$memo = memo
 Taro.$store = store
 
-export default ({ children }) => <Provider store={store}>{children}</Provider>
+export default ({ children }) => {
+	return <Provider store={store}>{children}</Provider>
+}

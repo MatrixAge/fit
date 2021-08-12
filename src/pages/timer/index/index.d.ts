@@ -9,3 +9,13 @@ export interface IProps {
 export interface IPageData {
 	timer: IModel
 }
+
+export interface IPropsBar {
+	current: IModel['current']
+	setCurrent: (current: IModel['current']) => void
+}
+
+export interface IPropsSwiper {
+	current: IModel['current']
+	setCurrent: (current: IModel['current']) => void
+}

@@ -1,8 +1,7 @@
 import Taro from '@tarojs/taro'
-import { Router } from 'tarojs-router-next'
-import Service from '@/service'
 
 export interface IAppModel {
+	tabbar_current: number
 	visible_login: boolean
 	user: any
 }
@@ -11,6 +10,7 @@ export default {
 	namespace: 'app',
 
 	state: {
+		tabbar_current: 0,
 		visible_login: false,
 		user: Taro.getStorageSync('user') || {}
 	} as IAppModel,

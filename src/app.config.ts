@@ -9,29 +9,18 @@ export default {
 		'pages/more/index/index'
 	],
 	window: {
-		backgroundTextStyle: 'light',
-		navigationBarBackgroundColor: '#222',
-		navigationBarTitleText: 'WeChat',
-		navigationBarTextStyle: 'white'
+		backgroundTextStyle: 'dark',
+		navigationBarBackgroundColor: '#fff',
+		navigationBarTextStyle: 'black'
 	},
 	tabBar: {
-		backgroundColor: '#222',
-		color: '#fff',
+		backgroundColor: 'white',
+		borderStyle: 'white',
 		list: [
 			{
 				pagePath: 'pages/timer/index/index',
 				iconPath: 'assets/images/nav_timer.png',
 				selectedIconPath: 'assets/images/nav_timer_active.png'
-			},
-			{
-				pagePath: 'pages/list/index/index',
-				iconPath: 'assets/images/nav_list.png',
-				selectedIconPath: 'assets/images/nav_list_active.png'
-			},
-			{
-				pagePath: 'pages/plan/index/index',
-				iconPath: 'assets/images/nav_plan.png',
-				selectedIconPath: 'assets/images/nav_plan_active.png'
 			},
 			{
 				pagePath: 'pages/exa/index/index',

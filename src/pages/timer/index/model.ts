@@ -1,9 +1,13 @@
-export interface IModel {}
+export interface IModel {
+	current: number
+}
 
 export default {
 	namespace: 'timer',
 
-	state: {} as IModel,
+	state: {
+		current: 0
+	} as IModel,
 
 	subscriptions: {
 		setup() {}
