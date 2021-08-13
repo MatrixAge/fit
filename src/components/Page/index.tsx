@@ -1,17 +1,18 @@
 import { Fragment, useState, useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Loader } from '@/components'
+import { Loader, NavBar } from '@/components'
 import styles from './index.less'
 
 interface IProps {
 	children: React.ReactNode
 	className?: string
 	loading?: boolean
+	title?: string
 }
 
 const Index = (props: IProps) => {
-	const { className, children, loading } = props
+	const { className, children, loading, title } = props
 	const [loading_loader, setLoadingLoader] = useState(false)
 
 	useEffect(() => {
@@ -28,6 +29,7 @@ const Index = (props: IProps) => {
 
 	return (
 		<Fragment>
+			<NavBar title={title}></NavBar>
 			{loading_loader && <Loader visible maskVisible />}
 			{!loading && (
 				<View

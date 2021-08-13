@@ -1,48 +1,39 @@
 ._local {
+	@height: 80rpx;
+
 	:global {
-		.tab_items {
-			z-index: 9999;
-			overflow: hidden;
-			height: 80rpx;
+		.tab {
+			z-index: 9;
+			padding-right: 36rpx;
+			padding-left: 12rpx;
+			height: @height;
 
-			.active_line {
-				position: absolute;
-				bottom: -6rpx;
-				width: 48rpx;
-				height: 12rpx;
-				border-radius: 6rpx;
-				background-color: black;
+			.tab_items {
+				.tab_item {
+					padding: 0 24rpx;
+					opacity: 0.3;
 
-				&.current_0 {
-					transform: translateX(calc(100vw / 6 - 24rpx));
-				}
+					&.active {
+						font-weight: bold;
+						opacity: 1;
+					}
 
-				&.current_1 {
-					transform: translateX(calc(50vw - 24rpx));
-				}
-
-				&.current_2 {
-					transform: translateX(calc(250vw / 3 - 24rpx));
+					.name {
+						letter-spacing: 2rpx;
+						font-size: 26rpx;
+					}
 				}
 			}
 
-			.tab_item {
-				flex: 1;
-				opacity: 0.3;
-
-				&.active {
-					font-weight: bold;
-					opacity: 1;
-				}
-
-				.name {
-					font-size: 30rpx;
+			.right_wrap {
+				.text {
+					margin-left: 8rpx;
 				}
 			}
 		}
 
-		.tab_items_placeholder {
-			height: 80rpx;
+		.tab_placeholder {
+			height: @height;
 		}
 	}
 }

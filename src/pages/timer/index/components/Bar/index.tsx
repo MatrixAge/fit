@@ -1,9 +1,11 @@
 import Taro from '@tarojs/taro'
-import { CustomWrapper, View, Text } from '@tarojs/components'
+import { CustomWrapper, View, Text, Button } from '@tarojs/components'
+import { Icon } from '@/components'
+import { settings } from '@/components/Icon/icons'
 import styles from './index.less'
 import type { IPropsBar } from '../../index.d'
 
-const tab_list = [{ name: '计时器' }, { name: '编组' }, { name: '计划' }]
+const tab_list = [{ name: '计时' }, { name: '编组' }, { name: '计划' }]
 
 const Index = (props: IPropsBar) => {
 	const { current, setCurrent } = props
@@ -11,24 +13,31 @@ const Index = (props: IPropsBar) => {
 	return (
 		<CustomWrapper>
 			<View className={styles._local}>
-				<View className='tab_items w_100 border_box flex color_bg_sub fixed top_0 left_0'>
-					<Text
-						className={`active_line absolute transition_normal current_${current}`}
-					></Text>
-					{tab_list.map((item, index) => (
-						<View
-							className={`
-                                                tab_item flex justify_center align_center transition_normal
-                                                ${current === index ? 'active' : ''}
-                                          `}
-							key={index}
-							onClick={() => setCurrent(index)}
-						>
-							<Text className='name'>{item.name}</Text>
-						</View>
-					))}
+				<View className='tab w_100 border_box fixed left_0 flex justify_between align_center'>
+					<View className='tab_items h_100 border_box flex'>
+						{tab_list.map((item, index) => (
+							<Button
+								className={`
+                                                      tab_item flex justify_center align_center
+                                                      ${current === index ? 'active' : ''}
+                                                `}
+								hoverClass='bg_transparent'
+								key={index}
+								onClick={() => setCurrent(index)}
+							>
+								<Text className='name'>{item.name}</Text>
+							</Button>
+						))}
+					</View>
+					<Button
+						className='right_wrap border_box flex align_center'
+						hoverClass='bg_transparent'
+					>
+						<Icon icon={settings} size={12}></Icon>
+						<Text className='text'>设置</Text>
+					</Button>
 				</View>
-				<View className='tab_items_placeholder w_100'></View>
+				<View className='tab_placeholder w_100'></View>
 			</View>
 		</CustomWrapper>
 	)

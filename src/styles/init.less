@@ -23,11 +23,20 @@
 		outline: none;
 		border: none;
 		background-color: transparent;
-		font-size: 28rpx;
-		transition: all ease 0.3s;
+		font-size: var(--fontsize_normal);
+		transition: transform ease 0.12s;
 
 		&::after {
 			display: none;
+		}
+
+		&:active {
+			background-color: transparent;
+			transform: scale(0.8);
+		}
+
+		&:hover {
+			background-color: transparent;
 		}
 
 		text {

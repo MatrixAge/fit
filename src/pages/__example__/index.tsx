@@ -8,7 +8,7 @@ import type { IProps, IPageData } from './index.d'
 const Index: ConnectRC<IProps> = (props) => {
 	const {} = props
 
-	return <Page>123</Page>
+	return <Page title='example'>123</Page>
 }
 
 const getInitialProps = ({ example }: IPageData) => ({

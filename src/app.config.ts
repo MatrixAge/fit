@@ -1,17 +1,12 @@
 import type { IAppConfig } from '@/typings/miniprogram'
 
 export default {
-	pages: [
-		'pages/timer/index/index',
-		'pages/list/index/index',
-		'pages/plan/index/index',
-		'pages/exa/index/index',
-		'pages/more/index/index'
-	],
+	pages: ['pages/timer/index/index', 'pages/exa/index/index', 'pages/more/index/index'],
 	window: {
 		backgroundTextStyle: 'dark',
 		navigationBarBackgroundColor: '#fff',
-		navigationBarTextStyle: 'black'
+		navigationBarTextStyle: 'black',
+		navigationStyle: 'custom'
 	},
 	tabBar: {
 		backgroundColor: 'white',
