@@ -1,9 +1,9 @@
 {
-      "name": "early",
+      "name": "fit",
       "version": "1.0.0",
       "private": true,
       "author": "Wendao",
-      "description": "运动一小会儿，快乐一整天",
+      "description": "Fit yourself",
       "templateInfo": {
             "name": "default",
             "typescript": true,
