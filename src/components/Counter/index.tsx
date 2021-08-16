@@ -38,7 +38,11 @@ const Index = (props: IProps) => {
 				<Button className='btn_decrease btn' onClick={decrease}>
 					<Text className='line'></Text>
 				</Button>
-				<Input className='input' type='number' value={String(value)}></Input>
+				<Input
+					className='counter_input'
+					type='number'
+					value={String(value)}
+				></Input>
 				<Button className='btn_increase btn relative' onClick={increase}>
 					<Text className='line absolute'></Text>
 					<Text className='line'></Text>

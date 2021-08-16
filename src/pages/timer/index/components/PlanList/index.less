@@ -1,0 +1,39 @@
+._local {
+	@height: 80rpx;
+
+	:global {
+		.tab {
+			z-index: 9;
+			padding-right: 36rpx;
+			padding-left: 12rpx;
+			height: @height;
+
+			.tab_items {
+				.tab_item {
+					padding: 0 24rpx;
+					opacity: 0.3;
+
+					&.active {
+						font-weight: bold;
+						opacity: 1;
+					}
+
+					.name {
+						letter-spacing: 2rpx;
+						font-size: 26rpx;
+					}
+				}
+			}
+
+			.right_wrap {
+				.text {
+					margin-left: 8rpx;
+				}
+			}
+		}
+
+		.tab_placeholder {
+			height: @height;
+		}
+	}
+}

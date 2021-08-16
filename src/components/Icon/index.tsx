@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const Index = (props: IProps) => {
-	const { icon, type = 'outline', size = 20, color = '#000', className } = props
+	const { icon, type = 'outline', size = 20, color = '#000' } = props
 
 	const src = useMemo(
 		() =>

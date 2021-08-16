@@ -9,10 +9,11 @@ interface IProps {
 	className?: string
 	loading?: boolean
 	title?: string
+	bgColor?: string
 }
 
 const Index = (props: IProps) => {
-	const { className, children, loading, title } = props
+	const { className, children, loading, title, bgColor } = props
 	const [loading_loader, setLoadingLoader] = useState(false)
 
 	useEffect(() => {
@@ -29,7 +30,7 @@ const Index = (props: IProps) => {
 
 	return (
 		<Fragment>
-			<NavBar title={title}></NavBar>
+			<NavBar title={title} bgColor={bgColor}></NavBar>
 			{loading_loader && <Loader visible maskVisible />}
 			{!loading && (
 				<View

@@ -8,16 +8,17 @@ import styles from './index.less'
 
 interface IProps {
 	title?: string
+	bgColor?: string
 }
 
 const Index = (props: IProps) => {
-	const { title = 'Fit' } = props
+	const { title = 'Fit', bgColor = 'white' } = props
 	const { nav_height, status_height } = useNavHeight()
 	const { path } = useRouter()
 
 	return (
 		<CustomWrapper>
-			<View className={styles._local}>
+			<View className={styles._local} style={{ background: bgColor }}>
 				<View
 					className='nav_bar w_100 border_box fixed top_0 left_0'
 					style={{ height: nav_height, paddingTop: status_height }}
@@ -34,7 +35,7 @@ const Index = (props: IProps) => {
 						) : (
 							<Button
 								className='btn_back absolute clickable'
-								hoverClass='bg_transparent'
+								hoverClass='none'
 								onClick={() => Taro.navigateBack()}
 							>
 								<Icon icon={lineLeft} color='#222' size={20}></Icon>

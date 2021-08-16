@@ -1,7 +1,12 @@
 import type { IAppConfig } from '@/typings/miniprogram'
 
 export default {
-	pages: ['pages/timer/index/index', 'pages/exa/index/index', 'pages/more/index/index'],
+	pages: [
+		'pages/timer/index/index',
+		'pages/timer/edit/index',
+		'pages/exa/index/index',
+		'pages/more/index/index'
+	],
 	window: {
 		backgroundTextStyle: 'dark',
 		navigationBarBackgroundColor: '#fff',
@@ -11,18 +16,23 @@ export default {
 	tabBar: {
 		backgroundColor: 'white',
 		borderStyle: 'white',
+		color: '#bbb',
+		selectedColor: '#222',
 		list: [
 			{
+				text: '训练',
 				pagePath: 'pages/timer/index/index',
 				iconPath: 'assets/images/nav_timer.png',
 				selectedIconPath: 'assets/images/nav_timer_active.png'
 			},
 			{
+				text: '示范',
 				pagePath: 'pages/exa/index/index',
 				iconPath: 'assets/images/nav_exa.png',
 				selectedIconPath: 'assets/images/nav_exa_active.png'
 			},
 			{
+				text: '课程',
 				pagePath: 'pages/more/index/index',
 				iconPath: 'assets/images/nav_more.png',
 				selectedIconPath: 'assets/images/nav_more_active.png'
