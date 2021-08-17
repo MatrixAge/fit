@@ -1,2 +1,5 @@
 export { default as Name } from './Name'
 export { default as Times } from './Times'
+export { default as Options } from './Options'
+export { default as Bar } from './Bar'
+export { default as Dialog } from './Dialog'

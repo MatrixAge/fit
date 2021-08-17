@@ -6,7 +6,7 @@ import type { CSSProperties } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 
 interface IProps {
-	children: React.ReactNode
+	children?: React.ReactNode
 	width?: string
 	height?: string
 	radius?: number

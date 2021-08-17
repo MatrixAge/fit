@@ -10,10 +10,11 @@ interface IProps {
 	loading?: boolean
 	title?: string
 	bgColor?: string
+	navContent?: React.ReactNode
 }
 
 const Index = (props: IProps) => {
-	const { className, children, loading, title, bgColor } = props
+	const { className, children, loading, title, bgColor, navContent } = props
 	const [loading_loader, setLoadingLoader] = useState(false)
 
 	useEffect(() => {
@@ -30,7 +31,9 @@ const Index = (props: IProps) => {
 
 	return (
 		<Fragment>
-			<NavBar title={title} bgColor={bgColor}></NavBar>
+			<NavBar title={title} bgColor={bgColor}>
+				{navContent}
+			</NavBar>
 			{loading_loader && <Loader visible maskVisible />}
 			{!loading && (
 				<View

@@ -1,18 +1,19 @@
 import Taro, { useRouter } from '@tarojs/taro'
-import { CustomWrapper, View, Image, Button, Text } from '@tarojs/components'
+import { CustomWrapper, View, Button, Text } from '@tarojs/components'
 import { Icon } from '@/components'
-import { lineLeft } from '@/components/Icon/icons'
+import { menu, arrowLeft } from '@/components/Icon/icons'
 import { useNavHeight } from '@/hooks'
 import config from '@/config'
 import styles from './index.less'
 
 interface IProps {
+	children?: React.ReactNode
 	title?: string
 	bgColor?: string
 }
 
 const Index = (props: IProps) => {
-	const { title = 'Fit', bgColor = 'white' } = props
+	const { children, title = 'Fit', bgColor = 'white' } = props
 	const { nav_height, status_height } = useNavHeight()
 	const { path } = useRouter()
 
@@ -25,24 +26,28 @@ const Index = (props: IProps) => {
 				>
 					<View className='content_wrap w_100 h_100 border_box flex justify_center align_center relative'>
 						{config.switch_page.includes(path) ? (
-							<View className='logo_wrap flex justify_center align_center bg_black absolute'>
-								<Image
-									className='logo absolute'
-									mode='aspectFit'
-									src={require('@/assets/images/logo_white.svg')}
-								></Image>
-							</View>
-						) : (
 							<Button
-								className='btn_back absolute clickable'
+								className='btn_menu btn absolute clickable'
 								hoverClass='none'
 								onClick={() => Taro.navigateBack()}
 							>
-								<Icon icon={lineLeft} color='#222' size={20}></Icon>
+								<Icon icon={menu} color='#222' size={20}></Icon>
+							</Button>
+						) : (
+							<Button
+								className='btn_back btn absolute clickable'
+								hoverClass='none'
+								onClick={() => Taro.navigateBack()}
+							>
+								<Icon
+									icon={arrowLeft}
+									color='#222'
+									size={20}
+								></Icon>
 							</Button>
 						)}
 						<View className='title_wrap'>
-							<Text className='title font_bold'>{title}</Text>
+							{children || <Text className='title'>{title}</Text>}
 						</View>
 					</View>
 				</View>

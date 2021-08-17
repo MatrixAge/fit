@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "early",
+	"projectname": "fit",
 	"appid": "wx8e159e25f6ee6b4e",
 	"setting": {
 		"urlCheck": false,

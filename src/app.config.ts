@@ -20,7 +20,7 @@ export default {
 		selectedColor: '#222',
 		list: [
 			{
-				text: '训练',
+				text: '健身',
 				pagePath: 'pages/timer/index/index',
 				iconPath: 'assets/images/nav_timer.png',
 				selectedIconPath: 'assets/images/nav_timer_active.png'

@@ -1,6 +1,3 @@
-export const logo = {
-	outline: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' style='background-color: black' ><g fill='#fff'><path d='M89 70h6v160h-6zM101 70h6v160h-6zM113 70h6v160h-6zM125 70h6v160h-6z'/></g><g fill='#fff'><path d='M131 70h80v6h-80zM131 82h80v6h-80zM131 94h80v6h-80z'/></g><g fill='#fff'><path d='M131 135h80v6h-80zM131 147h80v6h-80zM131 159h80v6h-80z'/></g></svg>`
-}
 export const add = {
 	outline: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M256 112v288M400 256H112'/></svg>`
 }

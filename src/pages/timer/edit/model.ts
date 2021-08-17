@@ -1,11 +1,36 @@
-export interface IModel {
+import type { ITimer } from '@/dto/Timer'
+
+export interface IModel extends ITimer {
 	type: 'add' | 'update'
-	id: number
+	preset_name: string
+	dialog: {
+		visible: boolean
+		title: string
+		key: string
+	}
 }
 
 const state = {
 	type: 'add',
-	id: 0
+
+	id: 0,
+	name: '',
+	ready: 0,
+	fit: 0,
+	relax: 0,
+	times: 0,
+	repeat_relax: 0,
+	color: '',
+	energy: 0,
+
+	preset_id: 0,
+	preset_name: '',
+
+	dialog: {
+		visible: false,
+		title: '',
+		key: ''
+	}
 }
 
 export default {

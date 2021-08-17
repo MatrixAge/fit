@@ -3,9 +3,9 @@ import { View, Swiper, SwiperItem, ScrollView } from '@tarojs/components'
 import { useNavHeight } from '@/hooks'
 import TimerList from '../TimerList'
 import styles from './index.less'
-import type { IPropsBar } from '../../index.d'
+import type { IPropsSwiper } from '../../index.d'
 
-const Index = (props: IPropsBar) => {
+const Index = (props: IPropsSwiper) => {
 	const { current, setCurrent } = props
 	const { nav_height } = useNavHeight()
 
@@ -16,7 +16,7 @@ const Index = (props: IPropsBar) => {
 				duration={300}
 				current={current}
 				onChange={({ detail: { current } }) => setCurrent(current)}
-				style={{ height: `calc(100vh - ${nav_height}px - 80rpx)` }}
+				style={{ height: `calc(100vh - ${nav_height}px)` }}
 			>
 				<SwiperItem>
 					<ScrollView className='swiper_item w_100 h_100 border_box' enableFlex>
@@ -24,14 +24,16 @@ const Index = (props: IPropsBar) => {
 					</ScrollView>
 				</SwiperItem>
 				<SwiperItem>
-					<ScrollView className='swiper_item w_100 h_100 border_box' enableFlex>
-						2
-					</ScrollView>
+					<ScrollView
+						className='swiper_item w_100 h_100 border_box'
+						enableFlex
+					></ScrollView>
 				</SwiperItem>
 				<SwiperItem>
-					<ScrollView className='swiper_item w_100 h_100 border_box' enableFlex>
-						3
-					</ScrollView>
+					<ScrollView
+						className='swiper_item w_100 h_100 border_box'
+						enableFlex
+					></ScrollView>
 				</SwiperItem>
 			</Swiper>
 		</View>

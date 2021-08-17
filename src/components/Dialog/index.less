@@ -2,30 +2,41 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	padding: 48rpx 32rpx;
-	padding-bottom: 0;
+	padding: 36rpx;
 	width: 100%;
 
 	:global {
-		.icon_wrap {
-			top: 12rpx;
-			right: 12rpx;
-			width: 64rpx;
-			height: 64rpx;
+		.title_wrap {
+			margin-top: 18rpx;
+			font-weight: 500;
+			font-size: 30rpx;
+			line-height: 1;
+		}
 
-			.icon_close {
-				width: 36rpx;
-				height: 36rpx;
+		.icon_wrap {
+			top: 36rpx;
+			width: 60rpx;
+			height: 60rpx;
+			border-radius: 50%;
+
+			&.btn_close {
+				left: 36rpx;
+				background-color: var(--color_bg_sub);
+			}
+
+			&.btn_confirm {
+				right: 36rpx;
+				background-color: var(--color_main);
 			}
 		}
 
-		.options_wrap {
-			.btn_ok {
-				height: 80rpx;
-				border-radius: 40rpx;
-				font-weight: 400;
-				font-size: 30rpx;
-			}
+		.btn_ok {
+			top: 36rpx;
+			right: 36rpx;
+			width: 54rpx;
+			height: 54rpx;
+			font-weight: 400;
+			font-size: 30rpx;
 		}
 	}
 }

@@ -1,19 +1,38 @@
 ._local {
 	box-sizing: border-box;
-	padding: 12rpx 0;
+	padding: 36rpx;
 	width: 100%;
 
 	:global {
-		.options_wrap {
-			bottom: 48rpx;
-			left: calc(50% - 40rpx);
-			z-index: 10;
+		.btn_add {
+			padding-left: 36rpx;
+			height: 160rpx;
+			background-color: var(--color_main);
+			color: white;
+			line-height: 1;
 
-			.btn {
-				width: 80rpx;
-				height: 80rpx;
-				border-radius: 50%;
-				box-shadow: 0 0 100rpx #ddd;
+			.mark {
+				right: 0;
+				font-weight: bolder;
+				font-size: 360rpx;
+				opacity: 0.12;
+				transform: rotate(30deg);
+			}
+
+			.right {
+				position: relative;
+				z-index: 1;
+				margin-left: 24rpx;
+
+				.text {
+					font-weight: 500;
+					font-size: 30rpx;
+				}
+
+				.desc {
+					margin-top: 18rpx;
+					font-size: 24rpx;
+				}
 			}
 		}
 	}
