@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { Swiper, SwiperItem, View, Text } from '@tarojs/components'
 import { Dialog } from '@/components'
-import { useSystemInfo } from '@/hooks'
+import { useSystemInfo, useRendered } from '@/hooks'
 import styles from './index.less'
 import type { ITouchEvent } from '@tarojs/components'
 
@@ -23,7 +23,10 @@ const Index = (props: IProps) => {
 	const { visible, title, range = [], unit = [], onOk, onClose } = props
 	const [current_left, setCurrentLeft] = useState(58)
 	const [current_right, setCurrentRight] = useState(58)
+	const [virtual_range_left, setVirtualRangeLeft] = useState([])
+	const [virtual_range_right, setVirtualRangeRight] = useState([])
 	const info = useSystemInfo()
+	const rendered = useRendered()
 
 	useEffect(() => {
 		if (!visible) return
@@ -31,6 +34,50 @@ const Index = (props: IProps) => {
 		setCurrentLeft(58)
 		setCurrentRight(58)
 	}, [visible])
+
+	useEffect(() => {
+		if (!range.length) return
+
+		const offset = current_left - 60
+
+		const index_start = offset
+		const index_end = current_left + 5
+
+		if (index_end < 0) {
+			const v_range: any = range[0].slice(index_start, index_end)
+
+			setVirtualRangeLeft(v_range)
+		} else {
+			const v_range: any = range[0]
+				.slice(index_start)
+				.concat(range[0].slice(0, index_end - 60))
+
+			setVirtualRangeLeft(v_range)
+		}
+	}, [range, current_left])
+
+	console.log(current_left)
+
+	useEffect(() => {
+		if (!range.length) return
+
+		const offset = current_right - 60
+
+		const index_start = offset
+		const index_end = current_right + 5
+
+		if (index_end < 0) {
+			const v_range: any = range[1].slice(index_start, index_end)
+
+			setVirtualRangeRight(v_range)
+		} else {
+			const v_range: any = range[0]
+				.slice(index_start)
+				.concat(range[0].slice(0, index_end - 60))
+
+			setVirtualRangeRight(v_range)
+		}
+	}, [range, current_right])
 
 	const onTouchStart = useCallback((e: ITouchEvent) => {
 		x = 0
@@ -80,16 +127,18 @@ const Index = (props: IProps) => {
 		onOk(left * 60 + right)
 	}
 
+	console.log([virtual_range_left, virtual_range_right])
+
 	return (
 		<Dialog title={title} visible={visible} onClose={onClose} onOk={onDialogOk}>
-			<View className={styles._local}>
-				<View
-					className='top_mask picker_mask w_100 absolute left_0'
-					onTouchStart={onTouchStart}
-					onTouchMove={onTouchMove}
-					onTouchEnd={onTouchEnd}
-					onTouchCancel={onTouchEnd}
-				></View>
+			<View
+				className={styles._local}
+				onTouchStart={onTouchStart}
+				onTouchMove={onTouchMove}
+				onTouchEnd={onTouchEnd}
+				onTouchCancel={onTouchEnd}
+			>
+				<View className='top_mask picker_mask w_100 absolute left_0'></View>
 				<View className='middle_mask w_100 absolute left_0 flex'>
 					{unit.map((item, index) => (
 						<View
@@ -100,42 +149,37 @@ const Index = (props: IProps) => {
 						</View>
 					))}
 				</View>
-				<View
-					className='bottom_mask picker_mask w_100 absolute left_0 bottom_0'
-					onTouchStart={onTouchStart}
-					onTouchMove={onTouchMove}
-					onTouchEnd={onTouchEnd}
-					onTouchCancel={onTouchEnd}
-				></View>
-				{range.map((item, index) => (
-					<View className='swiper_wrap' key={index}>
-						<Swiper
-							className='swiper'
-							vertical
-							circular
-							duration={300}
-							display-multiple-items={5}
-							current={index === 0 ? current_left : current_right}
-							onChange={({ detail: { current } }) =>
-								index === 0
-									? setCurrentLeft(current)
-									: setCurrentRight(current)
-							}
-						>
-							{item.map((it: number, idx: number) => (
-								<SwiperItem
-									className='swiper_item_wrap'
-									skip-hidden-item-layout
-									key={idx}
-								>
-									<View className='swiper_item w_100 h_100 font_bold border_box flex justify_center align_center'>
-										{it}
-									</View>
-								</SwiperItem>
-							))}
-						</Swiper>
-					</View>
-				))}
+				<View className='bottom_mask picker_mask w_100 absolute left_0 bottom_0'></View>
+				{rendered &&
+					[virtual_range_left, virtual_range_right].map((item, index) => (
+						<View className='swiper_wrap' key={index}>
+							<Swiper
+								className='swiper'
+								vertical
+								circular
+								duration={180}
+								display-multiple-items={5}
+								current={0}
+								onChange={({ detail: { current } }) =>
+									index === 0
+										? setCurrentLeft(current)
+										: setCurrentRight(current)
+								}
+							>
+								{item.map((it: number, idx: number) => (
+									<SwiperItem
+										className='swiper_item_wrap'
+										skip-hidden-item-layout
+										key={idx}
+									>
+										<View className='swiper_item w_100 h_100 font_bold border_box flex justify_center align_center'>
+											{it}
+										</View>
+									</SwiperItem>
+								))}
+							</Swiper>
+						</View>
+					))}
 			</View>
 		</Dialog>
 	)

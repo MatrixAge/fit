@@ -47,7 +47,9 @@ const Index = (props: IProps) => {
 							</Button>
 						)}
 						<View className='title_wrap'>
-							{children || <Text className='title'>{title}</Text>}
+							{children || (
+								<Text className='title font_bold'>{title}</Text>
+							)}
 						</View>
 					</View>
 				</View>
