@@ -2,14 +2,24 @@ import { useCallback } from 'react'
 import { connect } from 'react-redux'
 import Taro from '@tarojs/taro'
 import { Page, Line } from '@/components'
-import { Name, Times, Options, Bar, Dialog } from './components'
+import { Name, Time, Options, Bar, Dialog, Picker } from './components'
 import styles from './index.less'
 import type { ConnectRC } from '@/typings/dva'
-import type { IModel, IProps, IPageData, IPropsName, IPropsDialog } from './index.d'
+import type {
+	IModel,
+	IProps,
+	IPageData,
+	IPropsName,
+	IPropsTime,
+	IPropsOptions,
+	IPropsDialog,
+	IPropsPicker
+} from './index.d'
 
 const Index: ConnectRC<IProps> = (props) => {
 	const { page_data, dispatch } = props
-	const { type, name, preset_name, dialog } = page_data
+	const { type, name, preset_name, ready, fit, relax, times, repeat_relax, dialog, picker } =
+		page_data
 
 	const setDialog = useCallback(
 		(values: Partial<IModel['dialog']>) => {
@@ -26,24 +36,26 @@ const Index: ConnectRC<IProps> = (props) => {
 		[dialog]
 	)
 
+	const setPicker = useCallback(
+		(values: Partial<IModel['picker']>) => {
+			dispatch({
+				type: 'timer_edit/updateState',
+				payload: {
+					picker: {
+						...picker,
+						...values
+					}
+				}
+			})
+		},
+		[picker]
+	)
+
 	const setValue = useCallback((key: string, v: string | number) => {
 		dispatch({
 			type: 'timer_edit/updateState',
 			payload: {
 				[key]: v
-			}
-		})
-	}, [])
-
-	const closeDialog = useCallback(() => {
-		dispatch({
-			type: 'timer_edit/updateState',
-			payload: {
-				dialog: {
-					visible: false,
-					title: '',
-					key: ''
-				}
 			}
 		})
 	}, [])
@@ -54,9 +66,29 @@ const Index: ConnectRC<IProps> = (props) => {
 		setDialog
 	}
 
+	const props_time: IPropsTime = {
+		ready,
+		fit,
+		relax,
+		setPicker
+	}
+
+	const props_opitons: IPropsOptions = {
+		times,
+		repeat_relax,
+		setDialog,
+		setPicker
+	}
+
 	const props_dialog: IPropsDialog = {
 		dialog,
-		closeDialog,
+		setDialog,
+		setValue
+	}
+
+	const props_picker: IPropsPicker = {
+		picker,
+		setPicker,
 		setValue
 	}
 
@@ -64,11 +96,12 @@ const Index: ConnectRC<IProps> = (props) => {
 		<Page className={styles._local} title={type === 'add' ? '添加计时器' : '编辑计时器'}>
 			<Name {...props_name}></Name>
 			<Line thin color='#eee'></Line>
-			<Times></Times>
+			<Time {...props_time}></Time>
 			<Line thin color='#eee'></Line>
-			<Options></Options>
+			<Options {...props_opitons}></Options>
 			<Bar></Bar>
 			<Dialog {...props_dialog}></Dialog>
+			<Picker {...props_picker}></Picker>
 		</Page>
 	)
 }

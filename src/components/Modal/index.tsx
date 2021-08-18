@@ -57,9 +57,9 @@ const Index = (props: IProps) => {
 		return () => clearTimeout(Number(timer.current))
 	}, [visible])
 
-	const close = useCallback(() => {
+	const close = () => {
 		if (onClose) onClose()
-	}, [])
+	}
 
 	const getPositionStyle = () => {
 		return {

@@ -7,12 +7,11 @@ import type { IProps as IPropsModal } from '@/components/Modal'
 
 export interface IProps extends IPropsModal {
 	title?: string
-	okVisible?: boolean
 	onOk?: () => void
 }
 
 const Index = (props: IProps) => {
-	const { children, title, okVisible, onClose, onOk } = props
+	const { children, title, onClose, onOk } = props
 
 	return (
 		<CustomWrapper>
@@ -26,25 +25,25 @@ const Index = (props: IProps) => {
 				}}
 			>
 				<View className={styles._local}>
-					<View
+					<Button
 						className='icon_wrap btn_close flex justify_center align_center absolute'
+						hoverClass='none'
 						onClick={onClose}
 					>
 						<Icon icon={close} size={20}></Icon>
-					</View>
+					</Button>
 					{title && (
 						<View className='title_wrap w_100 border_box text_center'>
 							{title}
 						</View>
 					)}
-					{okVisible && (
-						<View
-							className='icon_wrap btn_confirm flex justify_center align_center absolute'
-							onClick={onOk}
-						>
-							<Icon icon={check} size={20} color='white'></Icon>
-						</View>
-					)}
+					<Button
+						className='icon_wrap btn_confirm flex justify_center align_center absolute'
+						hoverClass='none'
+						onClick={onOk}
+					>
+						<Icon icon={check} size={20} color='white'></Icon>
+					</Button>
 					<View className='content_wrap'>{children}</View>
 				</View>
 			</Modal>

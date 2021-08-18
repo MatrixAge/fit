@@ -8,6 +8,11 @@ export interface IModel extends ITimer {
 		title: string
 		key: string
 	}
+	picker: {
+		visible: boolean
+		title: string
+		key: string
+	}
 }
 
 const state = {
@@ -27,6 +32,11 @@ const state = {
 	preset_name: '',
 
 	dialog: {
+		visible: false,
+		title: '',
+		key: ''
+	},
+	picker: {
 		visible: false,
 		title: '',
 		key: ''

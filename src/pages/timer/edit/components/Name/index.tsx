@@ -13,13 +13,13 @@ const Index = ({ name, preset_name, setDialog }: IPropsName) => {
 					onClick={() =>
 						setDialog({
 							visible: true,
-							title: '训练名称',
+							title: '运动名称',
 							key: 'name'
 						})
 					}
 				>
 					<View className='left flex flex_column'>
-						<Text className='text'>输入训练名称</Text>
+						<Text className='text'>输入运动名称</Text>
 					</View>
 					<View className='right flex align_center'>
 						<Text className='value'>{name}</Text>

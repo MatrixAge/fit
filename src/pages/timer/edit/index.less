@@ -23,9 +23,11 @@
 			.right {
 				.value {
 					margin-right: 12rpx;
+					font-weight: bold;
 					line-height: 1;
 
 					&.time {
+						font-weight: normal;
 						font-size: 40rpx;
 						font-family: 'Roboto', 'Arial';
 					}
@@ -33,12 +35,19 @@
 			}
 		}
 
-		.dialog_input {
+		.local_dialog_wrap {
 			margin: 72rpx 0;
+
+			&.counter_wrap {
+				margin-top: 120rpx;
+			}
+		}
+
+		.dialog_input {
 			padding: 0 24rpx;
 			width: 60%;
 			height: 88rpx;
-			border-bottom: 2rpx solid #222;
+			border-bottom: 4rpx solid #222;
 			line-height: 88rpx;
 		}
 	}

@@ -1,0 +1,54 @@
+._local {
+	position: relative;
+	display: flex;
+	width: 100%;
+
+	@height: 450rpx;
+
+	:global {
+		.picker_mask {
+			z-index: 1;
+			height: calc(@height / 5 * 2);
+
+			&.top_mask {
+				top: 36rpx;
+				background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.6));
+			}
+
+			&.bottom_mask {
+				background: linear-gradient(to top, white, rgba(255, 255, 255, 0.6));
+			}
+		}
+
+		.middle_mask {
+			top: calc(@height / 5 * 2 + 36rpx);
+			height: calc(@height / 5);
+
+			.unit_item {
+				width: 50%;
+
+				.unit {
+					left: 60%;
+					font-size: 36rpx;
+					line-height: 1;
+				}
+			}
+		}
+
+		.swiper_wrap {
+			margin-top: 36rpx;
+			width: 50%;
+
+			.swiper {
+				height: @height;
+
+				.swiper_item_wrap {
+					.swiper_item {
+						font-size: 40rpx;
+						line-height: 1;
+					}
+				}
+			}
+		}
+	}
+}
