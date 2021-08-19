@@ -1,11 +1,11 @@
 import Taro from '@tarojs/taro'
 import { CustomWrapper, View, Text } from '@tarojs/components'
 import styles from './index.less'
-import type { IPropsBar } from '../../index.d'
+import type { IPropsSwiper } from '../../index.d'
 
 const tab_list = [{ name: '计时器' }, { name: '编组' }, { name: '计划' }]
 
-const Index = (props: IPropsBar) => {
+const Index = (props: IPropsSwiper) => {
 	const { current, setCurrent } = props
 
 	return (

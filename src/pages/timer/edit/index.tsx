@@ -95,9 +95,9 @@ const Index: ConnectRC<IProps> = (props) => {
 	return (
 		<Page className={styles._local} title={type === 'add' ? '添加计时器' : '编辑计时器'}>
 			<Name {...props_name}></Name>
-			<Line thin color='#eee'></Line>
+			<Line thin color='whitesmoke'></Line>
 			<Time {...props_time}></Time>
-			<Line thin color='#eee'></Line>
+			<Line thin color='whitesmoke'></Line>
 			<Options {...props_opitons}></Options>
 			<Bar></Bar>
 			<Dialog {...props_dialog}></Dialog>
