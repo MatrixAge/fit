@@ -14,28 +14,16 @@ export default {
 		navigationStyle: 'custom'
 	},
 	tabBar: {
-		backgroundColor: 'white',
-		borderStyle: 'white',
-		color: '#bbb',
-		selectedColor: '#222',
+		custom: true,
 		list: [
 			{
-				text: '健身',
-				pagePath: 'pages/timer/index/index',
-				iconPath: 'assets/images/nav_timer.png',
-				selectedIconPath: 'assets/images/nav_timer_active.png'
+				pagePath: 'pages/timer/index/index'
 			},
 			{
-				text: '示范',
-				pagePath: 'pages/exa/index/index',
-				iconPath: 'assets/images/nav_exa.png',
-				selectedIconPath: 'assets/images/nav_exa_active.png'
+				pagePath: 'pages/exa/index/index'
 			},
 			{
-				text: '课程',
-				pagePath: 'pages/more/index/index',
-				iconPath: 'assets/images/nav_more.png',
-				selectedIconPath: 'assets/images/nav_more_active.png'
+				pagePath: 'pages/more/index/index'
 			}
 		]
 	},

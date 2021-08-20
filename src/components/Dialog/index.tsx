@@ -26,7 +26,7 @@ const Index = (props: IProps) => {
 			>
 				<View className={styles._local}>
 					<Button
-						className='icon_wrap btn_close flex justify_center align_center absolute'
+						className='icon_wrap btn_close border_box flex justify_center align_center absolute'
 						hoverClass='none'
 						onClick={onClose}
 					>
@@ -38,7 +38,7 @@ const Index = (props: IProps) => {
 						</View>
 					)}
 					<Button
-						className='icon_wrap btn_confirm flex justify_center align_center absolute'
+						className='icon_wrap btn_confirm border_box flex justify_center align_center absolute'
 						hoverClass='none'
 						onClick={onOk}
 					>

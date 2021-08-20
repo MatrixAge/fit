@@ -44,7 +44,7 @@ const Index = (props: IPropsTime) => {
 				>
 					<View className='left flex flex_column'>
 						<Text className='text'>锻炼</Text>
-						<Text className='desc color_ccc'>锻炼时间</Text>
+						<Text className='desc color_ccc'>运动时长</Text>
 					</View>
 					<View className='right flex align_center'>
 						<Text className='value time'>

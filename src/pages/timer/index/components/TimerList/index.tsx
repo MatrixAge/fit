@@ -4,17 +4,20 @@ import { CustomWrapper, View, Button, Text } from '@tarojs/components'
 import { Router } from 'tarojs-router-next'
 import { Icon } from '@/components'
 import { add } from '@/components/Icon/icons'
+import { useSafeArea } from '@/hooks'
 import styles from './index.less'
 import type { IPropsTimerList } from '../../index.d'
 
 const Index = (props: IPropsTimerList) => {
+	const safe_area = useSafeArea(true, true)
+
 	const onAdd = useCallback(() => {
 		Router.navigate({ url: '/pages/timer/edit/index' }, { params: { type: 'add' } })
 	}, [])
 
 	return (
 		<CustomWrapper>
-			<View className={styles._local} catchMove>
+			<View className={styles._local} style={{ paddingBottom: safe_area + 69 + 24 }}>
 				<Button
 					className='btn_add w_100 border_box flex justify_start relative shadow_main'
 					hoverClass='none'

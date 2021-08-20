@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { CustomWrapper, View } from '@tarojs/components'
 import { useSafeArea } from '@/hooks'
@@ -68,20 +68,20 @@ const Index = (props: IProps) => {
 				hide: { opacity: '0', transform: 'scale(0.81)', transformOrigin: 'center' }
 			},
 			top: {
-				show: { transform: 'translateY(0)' },
-				hide: { transform: 'translateY(-120%)' }
+				show: { transform: 'translate3d(0, 0, 0)' },
+				hide: { transform: 'translate3d(0, -120%, 0)' }
 			},
 			bottom: {
-				show: { transform: 'translateY(0)' },
-				hide: { transform: 'translateY(120%)' }
+				show: { transform: 'translate3d(0, 0, 0)' },
+				hide: { transform: 'translate3d(0, 120%, 0)' }
 			},
 			left: {
-				show: { transform: 'translateX(0)' },
-				hide: { transform: 'translateX(-120%)' }
+				show: { transform: 'translate3d(0, 0, 0)' },
+				hide: { transform: 'translate3d(-120%, 0, 0)' }
 			},
 			right: {
-				show: { transform: 'translateX(0)' },
-				hide: { transform: 'translateX(120%)' }
+				show: { transform: 'translate3d(0, 0, 0)' },
+				hide: { transform: 'translate3d(120%, 0, 0)' }
 			}
 		}
 	}

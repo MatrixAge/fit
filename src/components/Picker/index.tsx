@@ -27,6 +27,17 @@ const Index = (props: IProps) => {
 		setCurrentRight(58)
 	}, [visible])
 
+	const getVisible = useCallback(
+		(index: number, idx: number) => {
+			const current = index === 0 ? current_left + 2 : current_right + 2
+			const offset = idx - current
+			const status = offset < -7 ? 60 + offset : offset
+
+			return Math.abs(status) <= 7
+		},
+		[current_left, current_right]
+	)
+
 	const getStatus = useCallback(
 		(index: number, idx: number) => {
 			const current = index === 0 ? current_left + 2 : current_right + 2
@@ -81,6 +92,11 @@ const Index = (props: IProps) => {
 									<SwiperItem
 										className={`
                                                                   swiper_item_wrap w_100 h_100 font_bold border_box flex justify_center align_center
+                                                                  ${
+												getVisible(index, idx)
+													? 'visible'
+													: 'invisible'
+											}
                                                                   ${
 												getStatus(index, idx)
 													? 'active'

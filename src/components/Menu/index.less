@@ -1,10 +1,9 @@
 ._local {
+	padding: 0 36rpx;
 	width: 100%;
 
 	:global {
 		.user_wrap {
-			padding: 0 36rpx;
-
 			.top {
 				.icon_wrap {
 					margin-bottom: 24rpx;
@@ -19,8 +18,7 @@
 				}
 
 				.user_name {
-					font-weight: bold;
-					font-size: 32rpx;
+					font-size: 28rpx;
 				}
 			}
 
@@ -49,7 +47,29 @@
 			}
 		}
 
-		.option_items {
+		.option_items_wrap {
+			.option_items {
+				.option_item {
+					padding: 30rpx 0;
+					padding-left: 12rpx;
+					line-height: 1;
+
+					&:first-of-type {
+						margin-top: 18rpx;
+					}
+
+					&:last-of-type {
+						margin-bottom: 18rpx;
+					}
+
+					.left {
+						.name {
+							margin-left: 36rpx;
+							font-size: 26rpx;
+						}
+					}
+				}
+			}
 		}
 	}
 }

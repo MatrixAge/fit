@@ -18,22 +18,32 @@ const Index = (props: IPropsSwiper) => {
 				onChange={({ detail: { current } }) => setCurrent(current)}
 				style={{ height: `calc(100vh - ${nav_height}px)` }}
 			>
-				<SwiperItem>
-					<ScrollView className='swiper_item w_100 h_100 border_box' enableFlex>
+				<SwiperItem skip-hidden-item-layout>
+					<ScrollView
+						className='swiper_item w_100 h_100 border_box'
+						scrollY
+						enableFlex
+					>
 						<TimerList></TimerList>
 					</ScrollView>
 				</SwiperItem>
-				<SwiperItem>
+				<SwiperItem skip-hidden-item-layout>
 					<ScrollView
 						className='swiper_item w_100 h_100 border_box'
+						scrollY
 						enableFlex
-					></ScrollView>
+					>
+						123
+					</ScrollView>
 				</SwiperItem>
-				<SwiperItem>
+				<SwiperItem skip-hidden-item-layout>
 					<ScrollView
 						className='swiper_item w_100 h_100 border_box'
+						scrollY
 						enableFlex
-					></ScrollView>
+					>
+						456
+					</ScrollView>
 				</SwiperItem>
 			</Swiper>
 		</View>

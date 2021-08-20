@@ -36,7 +36,7 @@ const Index = (props: IProps) => {
 						{config.switch_page.includes(path) ? (
 							<Fragment>
 								<Button
-									className='btn_menu btn absolute clickable'
+									className='btn_menu btn absolute'
 									hoverClass='none'
 									onClick={showMenu}
 								>
@@ -50,7 +50,7 @@ const Index = (props: IProps) => {
 							</Fragment>
 						) : (
 							<Button
-								className='btn_back btn absolute clickable'
+								className='btn_back btn absolute'
 								hoverClass='none'
 								onClick={() => Taro.navigateBack()}
 							>
